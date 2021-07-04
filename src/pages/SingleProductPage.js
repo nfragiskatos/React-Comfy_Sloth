@@ -44,13 +44,49 @@ const SingleProductPage = () => {
     return <Error />;
   }
 
+  const {
+    name,
+    price,
+    description,
+    stock,
+    stars,
+    reviews,
+    id: sku,
+    company,
+    images,
+  } = product;
+
   return (
     <Wrapper>
-      <PageHero />
-      <ProductImages />
-      <AddToCart />
-      <Stars />
-      <Link />
+      <PageHero title={name} product />
+      <div className="section section-center page">
+        <Link to={project.nav.products} className="btn">
+          back to products
+        </Link>
+        <div className="product-center">
+          <ProductImages />
+          <section className="content">
+            <h2>{name}</h2>
+            <Stars />
+            <h5 className="price">{formatPrice(price)}</h5>
+            <p className="description">{description}</p>
+            <p className="info">
+              <span>Available : </span>
+              {stock > 0 ? "in stock" : "out of stock"}
+            </p>
+            <p className="info">
+              <span>SKU : </span>
+              {sku}
+            </p>
+            <p className="info">
+              <span>Brand : </span>
+              {company}
+            </p>
+            <hr />
+            {stock > 0 && <AddToCart />}
+          </section>
+        </div>
+      </div>
     </Wrapper>
   );
 };

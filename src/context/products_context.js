@@ -1,9 +1,21 @@
+import axios from "axios";
 import React, { useContext, useEffect, useReducer } from "react";
-import { SIDEBAR_CLOSE, SIDEBAR_OPEN } from "../actions";
+import {
+  GET_PRODUCTS_BEGIN,
+  GET_PRODUCTS_ERROR,
+  GET_PRODUCTS_SUCCESS,
+  SIDEBAR_CLOSE,
+  SIDEBAR_OPEN,
+} from "../actions";
 import reducer from "../reducers/products_reducer";
+import { products_url as url } from "../utils/constants";
 
 const initialState = {
   isSidebarOpen: false,
+  products_loading: false,
+  products_error: false,
+  products: [],
+  featured_products: [],
 };
 
 const ProductsContext = React.createContext();
@@ -19,8 +31,19 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: SIDEBAR_CLOSE });
   };
 
+  const fetchProducts = async (url) => {
+    dispatch({ type: GET_PRODUCTS_BEGIN });
+    try {
+      const resp = await axios.get(url);
+      const products = resp.data;
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
+    } catch (error) {
+      dispatch({ type: GET_PRODUCTS_ERROR });
+    }
+  };
+
   useEffect(() => {
-    // openSidebar();
+    fetchProducts(url);
   }, []);
 
   return (

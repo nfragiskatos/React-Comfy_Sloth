@@ -1,3 +1,3 @@
-export const formatPrice = () => {}
+export const formatPrice = (price) => price;
 
-export const getUniqueValues = () => {}
+export const getUniqueValues = () => {};

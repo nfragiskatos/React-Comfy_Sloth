@@ -35,8 +35,6 @@ const filter_reducer = (state, action) => {
   if (action.type === UPDATE_SORT) {
     return { ...state, sort: action.payload };
   }
-  if (action.type === UPDATE_FILTERS) {
-  }
   if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state;
     let tempProducts = [...filtered_products];
@@ -53,6 +51,10 @@ const filter_reducer = (state, action) => {
       tempProducts = tempProducts.sort((a, b) => b.name.localeCompare(a.name));
     }
     return { ...state, filtered_products: tempProducts };
+  }
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload;
+    return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if (action.type === FILTER_PRODUCTS) {
   }

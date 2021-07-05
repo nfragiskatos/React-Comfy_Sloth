@@ -3,6 +3,7 @@ import {
   LOAD_PRODUCTS,
   SET_GRIDVIEW,
   SET_LISTVIEW,
+  SORT_PRODUCTS,
   UPDATE_SORT,
 } from "../actions";
 import reducer from "../reducers/filter_reducer";
@@ -46,6 +47,10 @@ export const FilterProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
   }, [products]);
+
+  useEffect(() => {
+    dispatch({ type: SORT_PRODUCTS });
+  }, [products, state.sort]);
 
   return (
     <FilterContext.Provider

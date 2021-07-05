@@ -3,12 +3,26 @@ import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
+import { project } from "../ProjectProperties";
 import AmountButtons from "./AmountButtons";
 
 const AddToCart = ({ product }) => {
   const { id, stock, colors } = product;
   const [mainColor, setMainColor] = useState(colors[0]);
+  const [amount, setAmount] = useState(1);
   const context = useCartContext();
+
+  const increase = () => {
+    setAmount((oldAmount) => {
+      return oldAmount + 1 > stock ? oldAmount : oldAmount + 1;
+    });
+  };
+
+  const decrease = () => {
+    setAmount((oldAmount) => {
+      return oldAmount - 1 < 1 ? oldAmount : oldAmount - 1;
+    });
+  };
 
   return (
     <Wrapper>
@@ -31,9 +45,16 @@ const AddToCart = ({ product }) => {
           })}
         </div>
       </div>
-      <FaCheck />
-      <Link />
-      <AmountButtons />
+      <div className="btn-container">
+        <AmountButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+        />
+        <Link className="btn" to={project.nav.checkout}>
+          add to cart
+        </Link>
+      </div>
     </Wrapper>
   );
 };

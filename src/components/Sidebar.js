@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import { useProductsContext } from "../context/products_context";
+import { useUserContext } from "../context/user_context";
 import { project } from "../ProjectProperties";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
   return (
     <SidebarContainer>
       <aside
@@ -32,11 +34,13 @@ const Sidebar = () => {
               </li>
             );
           })}
-          <li>
-            <Link onClick={closeSidebar} to={project.nav.checkout}>
-              Checkout
-            </Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link onClick={closeSidebar} to={project.nav.checkout}>
+                Checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>

@@ -80,6 +80,12 @@ const filter_reducer = (state, action) => {
       );
     }
 
+    if (color !== "all") {
+      tempProducts = tempProducts.filter((product) =>
+        product.colors.includes(color)
+      );
+    }
+
     return { ...state, filtered_products: tempProducts };
   }
   if (action.type === CLEAR_FILTERS) {

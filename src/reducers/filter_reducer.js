@@ -82,6 +82,9 @@ const filter_reducer = (state, action) => {
         product.colors.includes(color)
       );
     }
+    if (shipping) {
+      tempProducts = tempProducts.filter((product) => product.shipping);
+    }
     tempProducts = tempProducts.filter((product) => product.price <= price);
 
     return { ...state, filtered_products: tempProducts };

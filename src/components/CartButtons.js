@@ -9,7 +9,7 @@ import { project } from "../ProjectProperties";
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
-  const { total_items } = useCartContext();
+  const { total_items, clearCart } = useCartContext();
   const { loginWithRedirect, myUser, logout } = useUserContext();
   return (
     <Wrapper className="cart-btn-wrapper">
@@ -21,11 +21,12 @@ const CartButtons = () => {
       </Link>
       {myUser ? (
         <button
-          onClick={() =>
+          onClick={() => {
+            clearCart();
             logout({
               returnTo: `${window.location.origin}${project.nav.homepage}`,
-            })
-          }
+            });
+          }}
           type="button"
           className="auth-btn"
         >

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Comfy_Sloth/static/css/main.742c8e16.chunk.css",
+    "main.js": "/React-Comfy_Sloth/static/js/main.f55aef2a.chunk.js",
+    "main.js.map": "/React-Comfy_Sloth/static/js/main.f55aef2a.chunk.js.map",
+    "runtime-main.js": "/React-Comfy_Sloth/static/js/runtime-main.ef62974f.js",
+    "runtime-main.js.map": "/React-Comfy_Sloth/static/js/runtime-main.ef62974f.js.map",
+    "static/js/2.e1dd6684.chunk.js": "/React-Comfy_Sloth/static/js/2.e1dd6684.chunk.js",
+    "static/js/2.e1dd6684.chunk.js.map": "/React-Comfy_Sloth/static/js/2.e1dd6684.chunk.js.map",
+    "index.html": "/React-Comfy_Sloth/index.html",
+    "static/css/main.742c8e16.chunk.css.map": "/React-Comfy_Sloth/static/css/main.742c8e16.chunk.css.map",
+    "static/js/2.e1dd6684.chunk.js.LICENSE.txt": "/React-Comfy_Sloth/static/js/2.e1dd6684.chunk.js.LICENSE.txt",
+    "static/media/hero-bcg-2.78991864.jpeg": "/React-Comfy_Sloth/static/media/hero-bcg-2.78991864.jpeg",
+    "static/media/hero-bcg.a876f19f.jpeg": "/React-Comfy_Sloth/static/media/hero-bcg.a876f19f.jpeg",
+    "static/media/logo.221f6b13.svg": "/React-Comfy_Sloth/static/media/logo.221f6b13.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ef62974f.js",
+    "static/js/2.e1dd6684.chunk.js",
+    "static/css/main.742c8e16.chunk.css",
+    "static/js/main.f55aef2a.chunk.js"
+  ]
+}

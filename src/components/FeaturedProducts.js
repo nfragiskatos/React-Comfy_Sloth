@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useProductsContext } from "../context/products_context";
+import { project } from "../ProjectProperties";
 import Error from "./Error";
 import Loading from "./Loading";
 import Product from "./Product";
@@ -28,6 +30,9 @@ const FeaturedProducts = () => {
         {featured.slice(0, 3).map((product) => {
           return <Product key={product.id} id={product.id} {...product} />;
         })}
+        <Link className="btn" to={project.nav.products}>
+          all products
+        </Link>
       </div>
     </Wrapper>
   );

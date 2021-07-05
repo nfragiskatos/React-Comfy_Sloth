@@ -12,14 +12,6 @@ import {
 import reducer from "../reducers/filter_reducer";
 import { useProductsContext } from "./products_context";
 
-// SET_GRIDVIEW,
-//   SET_LISTVIEW,
-//   UPDATE_SORT,
-//   SORT_PRODUCTS,
-//   UPDATE_FILTERS,
-//   FILTER_PRODUCTS,
-//   CLEAR_FILTERS,
-
 const initialState = {
   filtered_products: [],
   all_products: [],
@@ -52,7 +44,6 @@ export const FilterProvider = ({ children }) => {
   };
 
   const updateSort = (e) => {
-    const name = e.target.name;
     const value = e.target.value;
     dispatch({ type: UPDATE_SORT, payload: value });
   };

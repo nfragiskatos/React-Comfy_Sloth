@@ -6,15 +6,7 @@ import { useCartContext } from "../context/cart_context";
 import { project } from "../ProjectProperties";
 
 const CartPage = () => {
-  const {
-    cart,
-    total_item,
-    total_amount,
-    shipping_fee,
-    removeItem,
-    toggleAmount,
-    clearCart,
-  } = useCartContext();
+  const { cart } = useCartContext();
 
   if (cart.length < 1) {
     return (

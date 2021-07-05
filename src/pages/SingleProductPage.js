@@ -23,10 +23,10 @@ const SingleProductPage = () => {
   } = useProductsContext();
   const { id } = useParams();
   const history = useHistory();
-  const temp = formatPrice(55555555);
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id]);
 
   useEffect(() => {
@@ -35,6 +35,7 @@ const SingleProductPage = () => {
         history.push(project.nav.homepage);
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
@@ -54,7 +55,6 @@ const SingleProductPage = () => {
     id: sku,
     company,
     images,
-    colors,
   } = product;
 
   return (

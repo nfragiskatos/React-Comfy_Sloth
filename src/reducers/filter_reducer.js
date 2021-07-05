@@ -11,10 +11,19 @@ import {
 
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
+    let prices = action.payload.map((p) => p.price);
+    let maxPrice = Math.max(...prices);
+    // let minPrice = Math.min(...prices);
     return {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
+      filters: {
+        ...state.filters,
+        max_price: maxPrice,
+        price: maxPrice,
+        // minPrice: minPrice,
+      },
     };
   }
   if (action.type === SET_LISTVIEW) {

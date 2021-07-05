@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import { useProductsContext } from "../context/products_context";
+import { useUserContext } from "../context/user_context";
 import { project } from "../ProjectProperties";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
 
 const Nav = () => {
   const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
   return (
     <NavContainer>
       <div className="nav-center">
@@ -30,6 +32,11 @@ const Nav = () => {
               </li>
             );
           })}
+          {myUser && (
+            <li>
+              <Link to={project.nav.checkout}>checkout</Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </div>

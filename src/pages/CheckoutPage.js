@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { PageHero, StripeCheckout } from "../components";
+import { PageHero } from "../components";
 import { useCartContext } from "../context/cart_context";
 import { project } from "../ProjectProperties";
 
@@ -19,7 +19,13 @@ const CheckoutPage = () => {
             </Link>
           </div>
         ) : (
-          <StripeCheckout />
+          <div className="empty">
+            <h2>Payment options intentionally left blank</h2>
+            <Link to={project.nav.homepage} className="btn">
+              homepage
+            </Link>
+          </div>
+          // <StripeCheckout />
         )}
       </Wrapper>
     </main>

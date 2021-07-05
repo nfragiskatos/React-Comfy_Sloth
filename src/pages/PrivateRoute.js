@@ -1,15 +1,15 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import { useUserContext } from "../context/user_context";
 import { project } from "../ProjectProperties";
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const { myUser } = useUserContext();
+  const { user } = useAuth0();
   return (
     <Route
       {...rest}
       render={() => {
-        return myUser ? (
+        return user ? (
           children
         ) : (
           <Redirect to={project.nav.homepage}></Redirect>

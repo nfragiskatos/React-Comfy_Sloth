@@ -58,6 +58,24 @@ const Filters = () => {
               })}
             </div>
           </div>
+          <div className="form-control">
+            <h5>company</h5>
+            <select
+              name="company"
+              id="company"
+              value={company}
+              onChange={updateFilters}
+              className="company"
+            >
+              {companies.map((c, index) => {
+                return (
+                  <option key={index} value={c}>
+                    {c}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </form>
       </div>
     </Wrapper>

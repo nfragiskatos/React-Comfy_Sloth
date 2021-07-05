@@ -1,5 +1,10 @@
 import React, { useContext, useReducer } from "react";
-import { ADD_TO_CART } from "../actions";
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  REMOVE_CART_ITEM,
+  TOGGLE_CART_ITEM_AMOUNT,
+} from "../actions";
 import reducer from "../reducers/cart_reducer";
 
 const initialState = {
@@ -25,8 +30,23 @@ export const CartProvider = ({ children }) => {
       },
     });
   };
+
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
+  };
+
+  const toggleAmount = (id, value) => {
+    dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
+  };
+
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
+
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

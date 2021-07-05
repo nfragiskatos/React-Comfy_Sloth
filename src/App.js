@@ -31,9 +31,9 @@ function App() {
         <Route path={project.nav.cart} exact>
           <CartPage />
         </Route>
-        <Route path={project.nav.checkout} exact>
+        <PrivateRoute path={project.nav.checkout} exact>
           <CheckoutPage />
-        </Route>
+        </PrivateRoute>
         <Route
           path={project.nav.singleProduct}
           children={<SingleProductPage />}
@@ -42,9 +42,6 @@ function App() {
         <Route path={project.nav.error}>
           <ErrorPage />
         </Route>
-        <PrivateRoute>
-          <HomePage />
-        </PrivateRoute>
       </Switch>
       <Footer />
     </Router>

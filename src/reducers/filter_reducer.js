@@ -67,24 +67,22 @@ const filter_reducer = (state, action) => {
         product.name.toLowerCase().startsWith(text)
       );
     }
-
     if (category !== "all") {
       tempProducts = tempProducts.filter(
         (product) => product.category === category
       );
     }
-
     if (company !== "all") {
       tempProducts = tempProducts.filter(
         (product) => product.company === company
       );
     }
-
     if (color !== "all") {
       tempProducts = tempProducts.filter((product) =>
         product.colors.includes(color)
       );
     }
+    tempProducts = tempProducts.filter((product) => product.price <= price);
 
     return { ...state, filtered_products: tempProducts };
   }
